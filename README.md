@@ -266,6 +266,23 @@ aws s3api put-bucket-policy --bucket ec2-controller-n0arxan --policy file://buck
 import.meta.env.VITE_API_UPLOAD_URL
 ```
 
+## CI/CD - Auto Deployment
+
+GitHub Actions workflow (`.github/workflows/deploy.yaml`) automatically deploys to S3 on every push to `main` branch.
+
+**Workflow steps:**
+1. Checkout code
+2. Install dependencies (`npm ci`)
+3. Build production bundle (`npm run build`)
+4. Sync `dist/` to S3 bucket
+
+**Required GitHub Secrets:**
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+
+**S3 Bucket:** `my-ec2-controller-web`  
+**Region:** `eu-north-1`
+
 ---
 
 **License:** MIT
