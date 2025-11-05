@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-notion-bg text-notion-text antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+}
+
+@layer components {
+  .notion-button {
+    @apply px-4 py-2 bg-notion-accent text-white rounded-md hover:bg-notion-accent-hover transition-all duration-200 font-medium shadow-sm hover:shadow-md active:scale-95;
+  }
+  
+  .notion-input {
+    @apply w-full px-4 py-2.5 border border-notion-border rounded-md focus:outline-none focus:ring-2 focus:ring-notion-accent/20 focus:border-notion-accent transition-all duration-200 bg-white;
+  }
+  
+  .notion-card {
+    @apply bg-white border border-notion-border rounded-lg shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .notion-textarea {
+    @apply w-full px-4 py-3 border border-notion-border rounded-md focus:outline-none focus:ring-2 focus:ring-notion-accent/20 focus:border-notion-accent transition-all duration-200 resize-none bg-white font-mono text-sm;
+  }
+}
