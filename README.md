@@ -59,7 +59,7 @@ All functions run on **Python 3.x** runtime. Each requires specific IAM permissi
 {
   "Effect": "Allow",
   "Action": ["s3:PutObject"],
-  "Resource": "arn:aws:s3:::[your bucket name]/*"
+  "Resource": "arn:aws:s3:::[your-bucket-name]/*"
 }
 ```
 
@@ -132,7 +132,7 @@ All functions run on **Python 3.x** runtime. Each requires specific IAM permissi
     "ses:SendEmail"
   ],
   "Resource": [
-    "arn:aws:s3:::"arn:aws:s3:::[your bucket name]/*"/*",
+    "arn:aws:s3:::"arn:aws:s3:::[your-bucket-name]/*",
     "arn:aws:ec2:*:*:instance/*",
     "*"
   ]
@@ -243,7 +243,7 @@ aws s3api put-bucket-policy --bucket ec2-controller-n0arxan --policy file://buck
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::ec2-controller-n0arxan/*"
+      "Resource": "arn:aws:s3:::[your-bucket-name]/*"
     }
   ]
 }
@@ -251,7 +251,7 @@ aws s3api put-bucket-policy --bucket ec2-controller-n0arxan --policy file://buck
 
 **⚠️ CORS Setup:**
 1. Build → Deploy to S3
-2. AWS Console → S3 → `ec2-controller-n0arxan` → Permissions → CORS → Add configuration (see above)
+2. AWS Console → S3 → `your bucket` → Permissions → CORS → Add configuration (see above)
 3. Test upload functionality
 
 ## Environment Variables
