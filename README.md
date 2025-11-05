@@ -132,7 +132,7 @@ All functions run on **Python 3.x** runtime. Each requires specific IAM permissi
     "ses:SendEmail"
   ],
   "Resource": [
-    "arn:aws:s3:::"arn:aws:s3:::[your-bucket-name]/*",
+    "arn:aws:s3:::arn:aws:s3:::[your-bucket-name]/*",
     "arn:aws:ec2:*:*:instance/*",
     "*"
   ]
