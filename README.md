@@ -286,4 +286,5 @@ GitHub Actions workflow (`.github/workflows/deploy.yaml`) automatically deploys 
 ---
 
 **License:** MIT
-
+---
+##### **Deployed on(->! not permanently !<-):** "http://my-ec2-controller-web.s3-website.eu-north-1.amazonaws.com"

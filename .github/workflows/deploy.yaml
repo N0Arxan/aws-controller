@@ -20,31 +20,40 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
-      - name: 3. Install dependencies
+      - name: 3. Generate .env file
+        run: |
+          echo "🧾 Re-creating .env from repository variables..."
+          cat <<'EOF' > .env
+          VITE_API_UPLOAD_URL=${{ secrets.VITE_API_UPLOAD_URL }}
+          VITE_API_STATUS_URL=${{ secrets.VITE_API_STATUS_URL }}
+          EOF
+          echo "✅ .env file ready for build."
+
+      - name: 4. Install dependencies
         run: |
           echo "📦 Installing dependencies using 'npm ci'..."
           npm ci
           echo "✅ Dependencies installed."
 
-      - name: 4. Build Vue project
+      - name: 5. Build Vue project
         run: |
           echo "🛠️ Building Vue project..."
           npm run build
           echo "✅ Build complete."
           
-      - name: 5. List build artifacts
+      - name: 6. List build artifacts
         run: |
           echo "🔍 Listing contents of ./dist folder:"
           ls -la ./dist
 
-      - name: 6. Configure AWS credentials
+      - name: 7. Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
-      - name: 7. Sync /dist to S3
+      - name: 8. Sync /dist to S3
         run: |
           echo "🚀 Syncing ./dist to s3://my-ec2-controller-web"
           aws s3 sync ./dist s3://my-ec2-controller-web --delete
