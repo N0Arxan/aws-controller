@@ -107,7 +107,7 @@ const uploadFile = async () => {
       <div class="text-center mb-8 animate-slide-up">
         <h1 class="text-4xl font-bold text-notion-text mb-2">
           <font-awesome-icon :icon="['fas', 'server']" class="mr-3 text-notion-accent" />
-          EC2 Control Portal
+          EC2 Control Portal Albert
         </h1>
         <p class="text-notion-text-secondary text-sm">Upload your JSON configuration file or use the editor</p>
       </div>
